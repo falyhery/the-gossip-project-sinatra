@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>The Gossip Project</title>
+	</head>
+	<body>
+		<h1>Mon super site de gossip, depuis le dossier views !</h1>
+<!-- Notre view "index doit afficher la liste des gossips," -->
+<!-- ainsi qu'un lien pour créer un gossip. --> 
+		<p>Bienvenue ! La liste des potins arrive bientôt.</p>
+		<p>En attendant, tu peux <a href="/gossips/new/">créer un nouveau potin</a></p>
+ 		<% gossips.each do |gossip| %>
+		  <p>
+		  	<%= gossip.author %><br/>
+		  	<%= gossip.content %>
+		  </p>
+		<% end %><br/>
+		<p>Voici la liste des potins :</p><br/>
+		<% gossips.each_with_index do |gossip, index| %>
+		  <a href="gossips/<%=index %>/">
+		  	<%= index + 1 %>.
+		  	<%= gossip.author %>:
+		  	<%= gossip.content %>
+		  </a><br/>
+		<% end %>
+	</body>
+</html>
